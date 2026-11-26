@@ -438,15 +438,15 @@ import Playgrounds
     func add(a: Int, b: Int) -> Int {
         return a + b
     }
-
+    
     func subtract(a: Int, b: Int) -> Int {
         return a - b
     }
-
+    
     func multiply(a: Int, b: Int) -> Int {
         return a * b
     }
-
+    
     func calculate(
         a: Int,
         b: Int,
@@ -454,11 +454,79 @@ import Playgrounds
     ) {
         print(operation(a, b))
     }
-
+    
     calculate(a: 20, b: 10, operation: add)
     calculate(a: 20, b: 10, operation: subtract)
     calculate(a: 20, b: 10, operation: multiply)
     
     
+    // Functions as Return Types
     
+    //    1. What are Functions as Return Types?
+    //    In Swift, a function can return another function instead of returning a normal value like Int, String, or Bool.
+    //    The returned function can be stored in a variable and called later.
+    
+    //    Simple example:
+    func greet() -> () -> Void {
+        return {
+            print("Hello Swift")
+        }
+    }
+    
+    let greeting = greet()
+    
+    greeting()
+    
+    // Important points about Functions as Return Types
+    // 1. A Swift function can return another function.
+    // 2. The return type describes the function being returned.
+    // 3. Function types specify parameter types and return types.
+    // 4. A function can return a named function or a closure.
+    // 5. The returned function can be stored in a variable.
+    // 6. We can execute the returned function later.
+    // 7. Functions returning functions are useful for reusable and flexible code.
+    // 8. Closures are commonly used when returning functions.
+    
+    
+    
+    // Nested Functions
+    
+    
+    //    1. What are Nested Functions?
+    //    A nested function is a function declared inside another function.
+    //
+    //    In simple words, one function contains another function.
+    //
+    
+    func outerFunction() {
+        
+        print("Outer function started")
+        
+        func innerFunction() {
+            print("Inner function executed")
+        }
+        
+        innerFunction()
+    }
+    
+    outerFunction()
+    //    Outer function started
+    //    Inner function executed
+    
+//    Why do we use Nested Functions?
+//    Nested functions are useful when:
+//    - A function is needed only inside another function.
+//    - We want to organize complex logic into smaller functions.
+//    - We want to hide helper functions from outside code.
+//    - We want to access variables from the enclosing function.
+    
+    
+    // Important points about Nested Functions
+    // 1. A function declared inside another function is called a nested function.
+    // 2. Nested functions are also called local functions.
+    // 3. Inner functions can access variables from their outer function.
+    // 4. Nested functions can have parameters and return values.
+    // 5. Nested functions are accessible only within their enclosing scope.
+    // 6. They help organize complex logic into smaller functions.
+    // 7. They are useful for creating private helper functionality.
 }
