@@ -355,4 +355,110 @@ import Playgrounds
     // 8. We can use loops and array operations on variadic parameters.
     // 9. Variadic parameters are useful when the number of arguments is unknown.
     // 10. Variadic parameters and array parameters have different calling syntax.
+    
+    
+    
+    // Function Types
+    // Function types defines a type of parameters function accept and type of value function return
+    // In simple words, a function type describes a function's input and output.
+    
+    //    Example 1: Function without parameters and return value
+    func sayHello() {
+        print("Hello Swift")
+    }
+    
+    //    Its function type is:
+    //    () -> Void
+    
+    //    Example 2: Function with parameters and return value
+    func addNumbers(a: Int, b: Int) -> Int {
+        return a + b
+    }
+    
+    // Function type is:
+    (Int, Int) -> Int
+    
+    //    Different Function Type examples
+    //    Function declaration                                           Function type
+    //    --------------------------------------------------------------------------------
+    //    func hello() {}                                                   () -> Void
+    //    func getAge() -> Int                                              () -> Int
+    //    func display(name: String) {}                                   (String) -> Void
+    //    func add(a: Int, b: Int) -> Int                                 (Int, Int) -> Int
+    //    func isAdult(age: Int) -> Bool                                  (Int) -> Bool
+    
+    // Important points about Function Types
+    // 1. A function type defines the parameter types and return type of a function.
+    // 2. Function types use the -> symbol to separate parameters and return type.
+    // 3. () -> Void represents a function without parameters and return value.
+    // 4. (Int) -> Int represents a function that accepts an Int and returns an Int.
+    // 5. Swift allows assigning functions to variables.
+    // 6. Functions can be called using their assigned variable.
+    // 7. We can explicitly declare function types.
+    // 8. Function types do not include parameter names or argument labels.
+    // 9. Functions are first-class citizens in Swift.
+    // 10. Function types are important for closures, callbacks and higher-order functions.
+    
+    
+    
+    
+    //    Functions as Parameters
+    //    This is where function types become more practical.
+    
+    //    For example, we can pass one function into another function
+    
+    // What are Functions as parameters
+    // Swift allows to pass one function as argument into another function
+    // In simple words, a function can accept another function as its parameter.
+    func add(a: Int, b: Int) -> Int {
+        return a + b
+    }
+    
+    func calculate(
+        a: Int,
+        b: Int,
+        operation: (Int, Int) -> Int
+    ) {
+        let result = operation(a, b)
+        print(result)
+    }
+    
+    calculate(a: 10, b: 20, operation: add)
+    
+    
+    //    Output:
+    //    30
+    
+    //    Why do we pass functions as parameters?
+    //    Suppose you want to perform addition, subtraction, and multiplication.
+    //
+    //    Without passing functions as parameters, you might create separate functions for each operation.
+    //
+    //    Using function parameters, we can reuse one function and change its behavior by passing different operations.
+    func add(a: Int, b: Int) -> Int {
+        return a + b
+    }
+
+    func subtract(a: Int, b: Int) -> Int {
+        return a - b
+    }
+
+    func multiply(a: Int, b: Int) -> Int {
+        return a * b
+    }
+
+    func calculate(
+        a: Int,
+        b: Int,
+        operation: (Int, Int) -> Int
+    ) {
+        print(operation(a, b))
+    }
+
+    calculate(a: 20, b: 10, operation: add)
+    calculate(a: 20, b: 10, operation: subtract)
+    calculate(a: 20, b: 10, operation: multiply)
+    
+    
+    
 }
